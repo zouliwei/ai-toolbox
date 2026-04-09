@@ -265,8 +265,6 @@ function App() {
             </button>
           </div>
           <div className="header-controls">
-            {/* Theme Toggle */}
-            <ThemeToggle mode={viewMode} onToggle={toggleViewMode} />
             {/* Language Toggle */}
             <div className="lang-toggle" role="group" aria-label="Language toggle">
               <button
@@ -284,6 +282,8 @@ function App() {
                 中文
               </button>
             </div>
+            {/* Theme Toggle */}
+            <ThemeToggle mode={viewMode} onToggle={toggleViewMode} />
           </div>
         </header>
 
