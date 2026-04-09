@@ -19,11 +19,6 @@
       "name": "Knowledge Base",
       "nameCn": "知识库",
       "sorting": 4
-    },
-    {
-      "name": "Collaboration Suite",
-      "nameCn": "协作套件",
-      "sorting": 5
     }
   ],
   "outputs": [
@@ -477,7 +472,7 @@
         "Image",
         "Video & Audio"
       ],
-      "type": "Collaboration Suite",
+      "type": "Knowledge Base",
       "linkIntl": "https://www.larksuite.com/",
       "linkCn": "https://www.feishu.cn/"
     },
@@ -513,7 +508,7 @@
         "Video & Audio",
         "Music"
       ],
-      "type": "Collaboration Suite",
+      "type": "Knowledge Base",
       "linkIntl": "https://workspace.google.com/",
       "linkCn": ""
     },
