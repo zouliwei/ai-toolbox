@@ -33,34 +33,29 @@
       "sorting": 2
     },
     {
-      "name": "Video & Audio",
-      "nameCn": "视频与音频",
-      "sorting": 3
-    },
-    {
       "name": "Video",
       "nameCn": "视频",
-      "sorting": 4
+      "sorting": 3
     },
     {
       "name": "Avatar",
       "nameCn": "虚拟人",
-      "sorting": 5
+      "sorting": 4
     },
     {
       "name": "Speech",
       "nameCn": "语音",
-      "sorting": 6
+      "sorting": 5
     },
     {
       "name": "Music",
       "nameCn": "音乐",
-      "sorting": 7
+      "sorting": 6
     },
     {
       "name": "Sound Effect",
       "nameCn": "音效",
-      "sorting": 8
+      "sorting": 7
     }
   ],
   "apps": [
@@ -77,7 +72,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio",
+        "Video",
         "Music"
       ],
       "type": "General Assistant",
@@ -111,7 +106,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio",
+        "Video",
         "Avatar"
       ],
       "type": "Creative Platform",
@@ -131,7 +126,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio"
+        "Video"
       ],
       "type": "General Assistant",
       "linkIntl": "",
@@ -150,7 +145,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio"
+        "Video"
       ],
       "type": "General Assistant",
       "linkIntl": "https://chat.qwen.ai/",
@@ -183,7 +178,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio"
+        "Video"
       ],
       "type": "General Assistant",
       "linkIntl": "https://grok.com/",
@@ -242,7 +237,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio",
+        "Video",
         "Avatar"
       ],
       "type": "Creative Platform",
@@ -260,7 +255,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio",
+        "Video",
         "Avatar"
       ],
       "type": "Creative Platform",
@@ -276,7 +271,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio",
+        "Video",
         "Avatar"
       ],
       "type": "Creative Platform",
@@ -310,7 +305,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio",
+        "Video",
         "Avatar"
       ],
       "type": "Creative Platform",
@@ -358,7 +353,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio",
+        "Video",
         "Speech",
         "Music",
         "Sound Effect"
@@ -435,7 +430,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio"
+        "Video"
       ],
       "type": "Knowledge Base",
       "linkIntl": "https://notebooklm.google.com/",
@@ -470,7 +465,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio"
+        "Video"
       ],
       "type": "Knowledge Base",
       "linkIntl": "https://www.larksuite.com/",
@@ -505,7 +500,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio",
+        "Video",
         "Music"
       ],
       "type": "Knowledge Base",
@@ -539,7 +534,7 @@
       "outputs": [
         "Text",
         "Image",
-        "Video & Audio"
+        "Video"
       ],
       "type": "General Assistant",
       "linkIntl": "",
@@ -598,7 +593,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio"
+        "Video"
       ],
       "type": "Creative Platform",
       "linkIntl": "https://labs.google/flow/about",
@@ -857,7 +852,7 @@
         "Flow"
       ],
       "outputs": [
-        "Video & Audio"
+        "Video"
       ]
     },
     {
@@ -924,7 +919,7 @@
         "Lark"
       ],
       "outputs": [
-        "Video & Audio"
+        "Video"
       ]
     },
     {
@@ -984,7 +979,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio"
+        "Video"
       ]
     },
     {
@@ -1032,7 +1027,7 @@
         "Wan"
       ],
       "outputs": [
-        "Video & Audio"
+        "Video"
       ]
     },
     {
@@ -1076,7 +1071,7 @@
         "Kling"
       ],
       "outputs": [
-        "Video & Audio"
+        "Video"
       ]
     },
     {
@@ -1088,7 +1083,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio"
+        "Video"
       ]
     },
     {
@@ -1221,7 +1216,7 @@
       ],
       "outputs": [
         "Image",
-        "Video & Audio"
+        "Video"
       ]
     },
     {
@@ -1268,7 +1263,7 @@
         "Yuanbao"
       ],
       "outputs": [
-        "Video & Audio"
+        "Video"
       ]
     },
     {
