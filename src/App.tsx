@@ -25,6 +25,8 @@ const TITLES_DICT: Record<string, string> = {
   'MODELS': '模型',
   'COMPANIES': '公司',
   'SEARCH...': '搜索...',
+  'Intl Site →': '国际链接 →',
+  'CN Site →': '国内链接 →',
 };
 
 type Language = 'en' | 'cn';
@@ -351,10 +353,10 @@ function AppCard({ app, language }: { app: AIApp; language: Language }) {
       </div>
       <div className="card-footer">
         {app.linkIntl && (
-          <a href={app.linkIntl} target="_blank" rel="noreferrer" className="link-btn">Intl Site →</a>
+          <a href={app.linkIntl} target="_blank" rel="noreferrer" className="link-btn">{t('Intl Site →', language)}</a>
         )}
         {app.linkCn && (
-          <a href={app.linkCn} target="_blank" rel="noreferrer" className="link-btn" style={{ marginLeft: '8px' }}>CN Site →</a>
+          <a href={app.linkCn} target="_blank" rel="noreferrer" className="link-btn" style={{ marginLeft: '8px' }}>{t('CN Site →', language)}</a>
         )}
       </div>
     </article>
