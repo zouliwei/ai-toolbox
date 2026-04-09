@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "data": "node scripts/process-data.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
