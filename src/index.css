@@ -38,6 +38,7 @@ body {
   color: var(--color-fg);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 h1,

@@ -1,0 +1,591 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   ADVENTURE MODE — "Bright RPG Adventure" Theme
+   Scoped entirely under [data-theme="adventure"] so Classic Mode is untouched.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. THEME VARIABLES ──────────────────────────────────────────────────── */
+
+[data-theme="adventure"] {
+  /* Palette: Solar-punk High Fantasy */
+  --color-bg: #FFF8F0;
+  --color-bg-end: #F0EDE6;
+  --color-fg: #2D3436;
+  --color-accent: #3BA55D;          /* Meadow Green */
+  --color-accent-secondary: #5B9BD5; /* Sky Blue */
+  --color-accent-tertiary: #E5A100; /* Goldenrod Yellow */
+  --color-border: rgba(45, 52, 54, 0.12);
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-title: 'Fraunces', Georgia, serif;
+  --font-data: 'DM Sans', system-ui, sans-serif;
+
+  /* Borders — soft, barely-there */
+  --border-thin: 1px solid rgba(45, 52, 54, 0.10);
+  --border-thick: 1px solid rgba(45, 52, 54, 0.08);
+
+  /* Radii — organic shapes */
+  --radius-card: 24px;
+  --radius-btn: 16px;
+  --radius-pill: 12px;
+  --radius-sidebar: 0 24px 24px 0;
+
+  /* Card surface */
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --sidebar-bg: rgba(255, 255, 255, 0.45);
+}
+
+/* ─── 2. BASE BODY & CONTAINER ─────────────────────────────────────────── */
+
+[data-theme="adventure"].app-container {
+  background: linear-gradient(168deg, #FFF8F0 0%, #F0EDE6 50%, #E8F0E4 100%);
+  position: relative;
+}
+
+/* Subtle texture overlay — dot pattern */
+[data-theme="adventure"].app-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(45,52,54,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="adventure"] .sidebar,
+[data-theme="adventure"] .main-content,
+[data-theme="adventure"] .header,
+[data-theme="adventure"] .grid-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── 3. SIDEBAR ───────────────────────────────────────────────────────── */
+
+[data-theme="adventure"] .sidebar {
+  background: var(--sidebar-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255,255,255,0.4);
+  border-radius: var(--radius-sidebar);
+  padding: 1.5rem 1.25rem;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.04);
+}
+
+[data-theme="adventure"] .title-group h1 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--color-fg);
+  font-variation-settings: 'opsz' 40;
+}
+
+/* ─── 4. SEARCH BOX ───────────────────────────────────────────────────── */
+
+[data-theme="adventure"] .search-box {
+  border: 1px solid rgba(45,52,54,0.12);
+  border-radius: var(--radius-btn);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8);
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-data);
+  font-size: 0.95rem;
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+
+[data-theme="adventure"] .search-box:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(59,165,93,0.15), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+[data-theme="adventure"] .search-box.brutal-shadow {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+[data-theme="adventure"] .search-box.brutal-shadow:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* ─── 5. FILTER SECTIONS ──────────────────────────────────────────────── */
+
+[data-theme="adventure"] .filter-title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  border-bottom: 2px solid var(--color-accent);
+  color: var(--color-fg);
+  padding-bottom: 4px;
+  font-variation-settings: 'opsz' 24;
+}
+
+[data-theme="adventure"] .filter-label {
+  font-family: var(--font-data);
+  font-size: 0.92rem;
+  padding: 3px 0;
+  border-radius: 8px;
+  transition: background 200ms ease;
+}
+
+[data-theme="adventure"] .filter-label:hover {
+  background: rgba(59,165,93,0.06);
+  padding-left: 6px;
+}
+
+[data-theme="adventure"] .filter-checkbox {
+  border: 2px solid rgba(45,52,54,0.25);
+  border-radius: 6px;
+  width: 18px;
+  height: 18px;
+  transition: all 200ms ease;
+}
+
+[data-theme="adventure"] .filter-checkbox:checked {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+[data-theme="adventure"] .filter-checkbox:checked::after {
+  content: '✓';
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  width: auto;
+  height: auto;
+  background: none;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ─── 6. HEADER & TABS ────────────────────────────────────────────────── */
+
+[data-theme="adventure"] .header {
+  border-bottom: 1px solid rgba(45,52,54,0.08);
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="adventure"] .tab-btn {
+  font-family: var(--font-data);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid rgba(45,52,54,0.12);
+  border-radius: var(--radius-btn);
+  background: rgba(255,255,255,0.5);
+  color: var(--color-fg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: all 250ms ease;
+}
+
+[data-theme="adventure"] .tab-btn:hover {
+  background: rgba(59,165,93,0.08);
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59,165,93,0.12);
+  color: var(--color-fg);
+}
+
+[data-theme="adventure"] .tab-btn.active {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #2E8B4E 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(59,165,93,0.3);
+  transform: translateY(0);
+}
+
+/* ─── 7. LANGUAGE TOGGLE ──────────────────────────────────────────────── */
+
+[data-theme="adventure"] .lang-toggle {
+  border: 1px solid rgba(45,52,54,0.12);
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="adventure"] .lang-btn {
+  font-family: var(--font-data);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: none;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  color: var(--color-fg);
+  transition: all 200ms ease;
+}
+
+[data-theme="adventure"] .lang-btn + .lang-btn {
+  border-left: 1px solid rgba(45,52,54,0.10);
+}
+
+[data-theme="adventure"] .lang-btn.active {
+  background: linear-gradient(135deg, var(--color-accent-secondary) 0%, #4A8AC4 100%);
+  color: white;
+}
+
+[data-theme="adventure"] .lang-btn:hover:not(.active) {
+  background: rgba(91,155,213,0.08);
+  color: var(--color-fg);
+}
+
+/* ─── 8. CARDS — GLASSMORPHISM + ORGANIC SHAPES ────────────────────── */
+
+[data-theme="adventure"] .grid-container {
+  padding: 1.5rem;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+[data-theme="adventure"] .card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.4rem;
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.04),
+    0 1px 4px rgba(0,0,0,0.02),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 300ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vine corner decoration — top-right */
+[data-theme="adventure"] .card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(225deg, rgba(59,165,93,0.12) 0%, transparent 70%);
+  border-radius: 0 var(--radius-card) 0 24px;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+  opacity: 0.6;
+}
+
+/* Vine corner decoration — bottom-left */
+[data-theme="adventure"] .card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, rgba(91,155,213,0.10) 0%, transparent 70%);
+  border-radius: 0 20px 0 var(--radius-card);
+  pointer-events: none;
+  transition: opacity 300ms ease;
+  opacity: 0.4;
+}
+
+[data-theme="adventure"] .card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 12px 40px rgba(59,165,93,0.12),
+    0 4px 12px rgba(0,0,0,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+[data-theme="adventure"] .card:hover::before {
+  opacity: 1;
+}
+
+[data-theme="adventure"] .card:hover::after {
+  opacity: 0.8;
+}
+
+/* ─── 9. CARD HEADER ──────────────────────────────────────────────────── */
+
+[data-theme="adventure"] .card-header {
+  border-bottom: 1px solid rgba(45,52,54,0.08);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+[data-theme="adventure"] .card-title {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.25;
+  color: var(--color-fg);
+  font-variation-settings: 'opsz' 28;
+}
+
+[data-theme="adventure"] .card-subtitle {
+  font-family: var(--font-data);
+  font-size: 0.82rem;
+  color: rgba(45,52,54,0.55);
+  text-transform: none;
+  letter-spacing: 0.01em;
+  margin-top: 2px;
+}
+
+/* ─── 10. DATA ROWS & LABELS ──────────────────────────────────────────── */
+
+[data-theme="adventure"] .data-label {
+  font-family: var(--font-data);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(45,52,54,0.45);
+}
+
+/* ─── 11. PILLS — COLORFUL & ROUNDED ──────────────────────────────────── */
+
+[data-theme="adventure"] .pill-group {
+  gap: 6px;
+}
+
+[data-theme="adventure"] .pill {
+  font-family: var(--font-data);
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1px solid rgba(59,165,93,0.2);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  background: rgba(59,165,93,0.06);
+  color: #2a7d45;
+  transition: all 200ms ease;
+}
+
+[data-theme="adventure"] .pill:nth-child(even) {
+  border-color: rgba(91,155,213,0.2);
+  background: rgba(91,155,213,0.06);
+  color: #3d7ab8;
+}
+
+[data-theme="adventure"] .pill:nth-child(3n) {
+  border-color: rgba(229,161,0,0.2);
+  background: rgba(229,161,0,0.06);
+  color: #b58600;
+}
+
+[data-theme="adventure"] .pill:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ─── 12. LINK BUTTONS — POLISHED STONE ───────────────────────────────── */
+
+[data-theme="adventure"] .card-footer {
+  padding-top: 0.75rem;
+}
+
+[data-theme="adventure"] .link-btn {
+  font-family: var(--font-data);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(45,52,54,0.12);
+  border-radius: var(--radius-btn);
+  padding: 6px 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(240,237,230,0.8) 100%);
+  color: var(--color-fg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.9);
+  text-decoration: none;
+  transition: all 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="adventure"] .link-btn:hover {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #2E8B4E 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(59,165,93,0.25);
+  transform: translateY(-2px);
+}
+
+[data-theme="adventure"] .link-btn:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* ─── 13. THEME TOGGLE BUTTON ──────────────────────────────────────────── */
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: var(--border-thin);
+  background: var(--color-bg);
+  color: var(--color-fg);
+  cursor: pointer;
+  transition: all 300ms ease;
+  flex-shrink: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--color-accent, #FF3300);
+  color: white;
+}
+
+.theme-toggle-btn svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle-btn:hover svg {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Adventure-specific toggle overrides */
+[data-theme="adventure"] .theme-toggle-btn {
+  border: 1px solid rgba(45,52,54,0.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+[data-theme="adventure"] .theme-toggle-btn:hover {
+  background: linear-gradient(135deg, var(--color-accent-tertiary) 0%, #C98E00 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(229,161,0,0.3);
+  border-color: transparent;
+}
+
+/* ─── 14. SPARKLE GLOW ANIMATION ──────────────────────────────────────── */
+
+@keyframes sparkle-pulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 24px rgba(0,0,0,0.04),
+      0 1px 4px rgba(0,0,0,0.02),
+      inset 0 1px 0 rgba(255,255,255,0.6);
+  }
+  50% {
+    box-shadow:
+      0 4px 24px rgba(229,161,0,0.08),
+      0 1px 4px rgba(59,165,93,0.06),
+      0 0 20px rgba(229,161,0,0.06),
+      inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+}
+
+[data-theme="adventure"] .card:nth-child(5n+1) {
+  animation: sparkle-pulse 4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+[data-theme="adventure"] .card:nth-child(5n+3) {
+  animation: sparkle-pulse 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* ─── 15. GLOBAL TRANSITION LAYER ──────────────────────────────────────── */
+
+/* Smooth transitions when switching themes */
+.app-container,
+.app-container .sidebar,
+.app-container .header,
+.app-container .card,
+.app-container .tab-btn,
+.app-container .lang-btn,
+.app-container .lang-toggle,
+.app-container .search-box,
+.app-container .pill,
+.app-container .link-btn,
+.app-container .filter-checkbox,
+.app-container .filter-title,
+.app-container .filter-label,
+.app-container .card-title,
+.app-container .card-subtitle,
+.app-container .data-label,
+.app-container .theme-toggle-btn {
+  transition: background 300ms ease-in-out,
+              background-color 300ms ease-in-out,
+              color 300ms ease-in-out,
+              border-color 300ms ease-in-out,
+              border-radius 300ms ease-in-out,
+              box-shadow 300ms ease-in-out,
+              backdrop-filter 300ms ease-in-out;
+}
+
+/* ─── 16. HEADING OVERRIDES ────────────────────────────────────────────── */
+
+[data-theme="adventure"] h1,
+[data-theme="adventure"] h2,
+[data-theme="adventure"] h3,
+[data-theme="adventure"] h4,
+[data-theme="adventure"] h5,
+[data-theme="adventure"] h6 {
+  font-family: var(--font-display);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+/* ─── 17. GENERAL BUTTON & INPUT OVERRIDES ──────────────────────────── */
+
+[data-theme="adventure"] button {
+  background-color: rgba(255,255,255,0.5);
+  color: var(--color-fg);
+  border-radius: var(--radius-btn);
+  text-transform: none;
+  transition: all 250ms ease;
+}
+
+[data-theme="adventure"] button:hover {
+  background-color: rgba(59,165,93,0.08);
+  color: var(--color-fg);
+}
+
+[data-theme="adventure"] button:active {
+  transform: scale(0.96);
+}
+
+[data-theme="adventure"] input,
+[data-theme="adventure"] select {
+  font-family: var(--font-data);
+  border-radius: var(--radius-btn);
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(45,52,54,0.12);
+}
+
+/* ─── 18. SCROLLBAR STYLING ────────────────────────────────────────────── */
+
+[data-theme="adventure"] .sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+[data-theme="adventure"] .sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="adventure"] .sidebar::-webkit-scrollbar-thumb {
+  background: rgba(59,165,93,0.2);
+  border-radius: 3px;
+}
+
+[data-theme="adventure"] .sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(59,165,93,0.35);
+}

@@ -1,7 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import './App.css';
+import './adventure.css';
 import dbJson from './data.json';
 import type { AIApp, AICompany, AIModel } from './types';
+
+type ViewMode = 'classic' | 'adventure';
 
 // ─── TYPE AUGMENTATIONS FOR ENRICHED JSON ────────────────────────────────────
 const db = dbJson as {
@@ -82,6 +85,19 @@ function App() {
   const [activeTab, setActiveTab] = useState<Tab>('Apps');
   const [search, setSearch] = useState('');
   const [language, setLanguage] = useState<Language>('en');
+  const [viewMode, setViewMode] = useState<ViewMode>(() => {
+    try {
+      const stored = localStorage.getItem('ai-nav-view-mode');
+      return (stored === 'adventure' ? 'adventure' : 'classic') as ViewMode;
+    } catch { return 'classic'; }
+  });
+
+  useEffect(() => {
+    try { localStorage.setItem('ai-nav-view-mode', viewMode); } catch { /* noop */ }
+  }, [viewMode]);
+
+  const toggleViewMode = () =>
+    setViewMode(prev => prev === 'classic' ? 'adventure' : 'classic');
 
   // Dynamic filters based on active tab
   const [selectedTypes, setSelectedTypes] = useState<Set<string>>(new Set());
@@ -178,7 +194,7 @@ function App() {
   // ─── RENDER ──────────────────────────────────────────────────────────────────
 
   return (
-    <div className="app-container">
+    <div className="app-container" data-theme={viewMode === 'adventure' ? 'adventure' : undefined}>
       {/* SIDEBAR */}
       <aside className="sidebar">
         <div className="title-group">
@@ -248,22 +264,26 @@ function App() {
               {t('COMPANIES', language)} ({filteredCompanies.length})
             </button>
           </div>
-          {/* Language Toggle — top right */}
-          <div className="lang-toggle" role="group" aria-label="Language toggle">
-            <button
-              id="lang-en"
-              className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-              onClick={() => setLanguage('en')}
-            >
-              EN
-            </button>
-            <button
-              id="lang-cn"
-              className={`lang-btn ${language === 'cn' ? 'active' : ''}`}
-              onClick={() => setLanguage('cn')}
-            >
-              中文
-            </button>
+          <div className="header-controls">
+            {/* Theme Toggle */}
+            <ThemeToggle mode={viewMode} onToggle={toggleViewMode} />
+            {/* Language Toggle */}
+            <div className="lang-toggle" role="group" aria-label="Language toggle">
+              <button
+                id="lang-en"
+                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+                onClick={() => setLanguage('en')}
+              >
+                EN
+              </button>
+              <button
+                id="lang-cn"
+                className={`lang-btn ${language === 'cn' ? 'active' : ''}`}
+                onClick={() => setLanguage('cn')}
+              >
+                中文
+              </button>
+            </div>
           </div>
         </header>
 
@@ -284,6 +304,43 @@ function App() {
 }
 
 // ─── SUB-COMPONENTS ───────────────────────────────────────────────────────────
+
+// SVG Icons — illustrative, colorful style
+function CompassIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" fill="none" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+      <path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" fill="currentColor" opacity="0.7" />
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function GridIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="3" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.15" />
+      <rect x="13" y="3" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.15" />
+      <rect x="3" y="13" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.15" />
+      <rect x="13" y="13" width="8" height="8" rx="1" stroke="currentColor" strokeWidth="1.5" fill="currentColor" opacity="0.15" />
+    </svg>
+  );
+}
+
+function ThemeToggle({ mode, onToggle }: { mode: ViewMode; onToggle: () => void }) {
+  return (
+    <button
+      id="theme-toggle"
+      className="theme-toggle-btn"
+      onClick={onToggle}
+      aria-label={`Switch to ${mode === 'classic' ? 'Adventure' : 'Classic'} mode`}
+      title={mode === 'classic' ? '✨ Adventure Mode' : '⊞ Classic Mode'}
+    >
+      {mode === 'classic' ? <CompassIcon /> : <GridIcon />}
+    </button>
+  );
+}
 
 interface FilterOption { value: string; label: string; }
 
