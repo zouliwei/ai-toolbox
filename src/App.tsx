@@ -122,10 +122,6 @@ function App() {
 
   const handleTabSwitch = (tab: Tab) => {
     setActiveTab(tab);
-    setSearch('');
-    setSelectedTypes(new Set());
-    setSelectedCountries(new Set());
-    setSelectedOutputs(new Set());
   };
 
   const toggleFilter = (set: Set<string>, val: string, updateFn: (s: Set<string>) => void) => {
