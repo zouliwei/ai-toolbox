@@ -14,6 +14,7 @@ const db = dbJson as {
 
 // ─── STATIC TRANSLATIONS DICTIONARY ─────────────────────────────────────────
 const TITLES_DICT: Record<string, string> = {
+  'AI Navigator': 'AI导航员',
   'Type': '类型',
   'Output': '输出',
   'Country': '国家',
@@ -185,7 +186,7 @@ function App() {
       {/* SIDEBAR */}
       <aside className="sidebar">
         <div className="title-group">
-          <h1>AI Navigator</h1>
+          <h1>{t('AI Navigator', language)}</h1>
         </div>
 
         <input
