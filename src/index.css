@@ -1,10 +1,13 @@
 :root {
   /* Brutalist Palette - Light Mode Only */
-  --color-bg: #EAE8E3; /* Slightly warm off-white industrial paper */
-  --color-fg: #111111; /* Stark black */
-  --color-accent: #FF3300; /* Safety Orange / Red */
+  --color-bg: #EAE8E3;
+  /* Slightly warm off-white industrial paper */
+  --color-fg: #111111;
+  /* Stark black */
+  --color-accent: #FF3300;
+  /* Safety Orange / Red */
   --color-border: #111111;
-  
+
   --font-display: 'Syne', sans-serif;
   --font-title: 'Barlow Condensed', sans-serif;
   --font-data: 'JetBrains Mono', monospace;
@@ -21,7 +24,9 @@
   --border-uber: 8px solid var(--color-border);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -35,7 +40,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 800;
   line-height: 1.1;
@@ -52,12 +62,15 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 6px 6px 0 var(--color-fg);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+
 .brutal-shadow:hover {
   transform: translate(2px, 2px);
   box-shadow: 4px 4px 0 var(--color-fg);
 }
 
-input, select, button {
+input,
+select,
+button {
   font-family: inherit;
   color: inherit;
   background: white;
@@ -71,6 +84,7 @@ button {
   text-transform: uppercase;
   font-weight: bold;
 }
+
 button:hover {
   background-color: var(--color-accent);
   color: var(--color-fg);
