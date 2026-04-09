@@ -14,7 +14,7 @@ const db = dbJson as {
 
 // ─── STATIC TRANSLATIONS DICTIONARY ─────────────────────────────────────────
 const TITLES_DICT: Record<string, string> = {
-  'AI Navigator': 'AI导航员',
+  'AI Navigator': 'AI 目录',
   'Type': '类型',
   'Output': '输出',
   'Country': '国家',
