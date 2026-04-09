@@ -59,6 +59,20 @@ function countryDisplay(country: string, language: Language): string {
   return language === 'cn' ? (COUNTRY_DICT[country] ?? country) : country;
 }
 
+/** Translate a type string (e.g. "General Assistant" → "通用助手") */
+function typeDisplay(typeName: string, language: Language): string {
+  if (language !== 'cn') return typeName;
+  const found = db.types?.find(t => t.name === typeName);
+  return found?.nameCn ?? typeName;
+}
+
+/** Translate an output string (e.g. "Text" → "文字") */
+function outputDisplay(outputName: string, language: Language): string {
+  if (language !== 'cn') return outputName;
+  const found = db.outputs?.find(o => o.name === outputName);
+  return found?.nameCn ?? outputName;
+}
+
 // ─── APP COMPONENT ────────────────────────────────────────────────────────────
 
 function App() {
@@ -304,11 +318,11 @@ function FilterSection({
   );
 }
 
-function PillList({ items }: { items: string[] }) {
+function PillList({ items, translate }: { items: string[]; translate?: (s: string) => string }) {
   if (!items || items.length === 0) return <span className="data-value">-</span>;
   return (
     <div className="pill-group">
-      {items.map(m => <span key={m} className="pill">{m}</span>)}
+      {items.map(m => <span key={m} className="pill">{translate ? translate(m) : m}</span>)}
     </div>
   );
 }
@@ -324,11 +338,11 @@ function AppCard({ app, language }: { app: AIApp; language: Language }) {
       <div className="card-body">
         <div className="data-row">
           <span className="data-label">{t('Type', language)}</span>
-          <PillList items={app.type ? [app.type] : []} />
+          <PillList items={app.type ? [app.type] : []} translate={s => typeDisplay(s, language)} />
         </div>
         <div className="data-row">
           <span className="data-label">{t('Output', language)}</span>
-          <PillList items={app.outputs} />
+          <PillList items={app.outputs} translate={s => outputDisplay(s, language)} />
         </div>
         <div className="data-row">
           <span className="data-label">{t('Proprietary MODELS', language)}</span>
@@ -358,11 +372,11 @@ function ModelCard({ model, language }: { model: AIModel; language: Language }) 
       <div className="card-body">
         <div className="data-row">
           <span className="data-label">{t('Output', language)}</span>
-          <PillList items={model.outputs} />
+          <PillList items={model.outputs} translate={s => outputDisplay(s, language)} />
         </div>
         <div className="data-row">
           <span className="data-label">{t('Used by Apps', language)}</span>
-          <PillList items={model.apps} />
+          <PillList items={model.apps} translate={s => displayName({ name: s, nameCn: db.apps.find(a => a.name === s)?.nameCn }, language)} />
         </div>
       </div>
     </article>
@@ -379,7 +393,7 @@ function CompanyCard({ company, language }: { company: AICompany; language: Lang
       <div className="card-body">
         <div className="data-row">
           <span className="data-label">{t('Apps', language)}</span>
-          <PillList items={company.apps} />
+          <PillList items={company.apps} translate={s => displayName({ name: s, nameCn: db.apps.find(a => a.name === s)?.nameCn }, language)} />
         </div>
         <div className="data-row">
           <span className="data-label">{t('Models', language)}</span>
