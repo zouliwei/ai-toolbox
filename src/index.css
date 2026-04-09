@@ -1,0 +1,76 @@
+:root {
+  /* Brutalist Palette - Light Mode Only */
+  --color-bg: #EAE8E3; /* Slightly warm off-white industrial paper */
+  --color-fg: #111111; /* Stark black */
+  --color-accent: #FF3300; /* Safety Orange / Red */
+  --color-border: #111111;
+  
+  --font-display: 'Syne', sans-serif;
+  --font-data: 'JetBrains Mono', monospace;
+
+  /* Structural Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  --border-thin: 1px solid var(--color-border);
+  --border-thick: 4px solid var(--color-border);
+  --border-uber: 8px solid var(--color-border);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-data);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Brutalist specific utilities */
+.editorial-border {
+  border: var(--border-thick);
+}
+
+.brutal-shadow {
+  box-shadow: 6px 6px 0 var(--color-fg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.brutal-shadow:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 var(--color-fg);
+}
+
+input, select, button {
+  font-family: inherit;
+  color: inherit;
+  background: white;
+  border: var(--border-thin);
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+button:hover {
+  background-color: var(--color-accent);
+  color: var(--color-fg);
+}

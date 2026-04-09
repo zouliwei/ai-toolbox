@@ -1,0 +1,1208 @@
+{
+  "apps": [
+    {
+      "name": "Gemini",
+      "company": "Google",
+      "country": "USA",
+      "models": [
+        "Gemini",
+        "Nano Banana",
+        "Veo",
+        "Lyria"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio",
+        "Music"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://gemini.google.com/app",
+      "linkCn": ""
+    },
+    {
+      "name": "Antigravity",
+      "company": "Google",
+      "country": "USA",
+      "models": [
+        "Gemini",
+        "Nano Banana"
+      ],
+      "outputs": [
+        "Text",
+        "Image"
+      ],
+      "type": "Local Workspace",
+      "linkIntl": "https://antigravity.google/",
+      "linkCn": ""
+    },
+    {
+      "name": "Jimeng / 即梦",
+      "company": "ByteDance / 字节",
+      "country": "China",
+      "models": [
+        "Seedream",
+        "Seedance"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://dreamina.capcut.com/ai-tool/home",
+      "linkCn": "https://jimeng.jianying.com/ai-tool/home"
+    },
+    {
+      "name": "Doubao / 豆包",
+      "company": "ByteDance / 字节",
+      "country": "China",
+      "models": [
+        "Seed",
+        "Seedream",
+        "Seedance"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "",
+      "linkCn": "https://www.doubao.com/"
+    },
+    {
+      "name": "Qwen / 千问",
+      "company": "Alibaba / 阿里",
+      "country": "China",
+      "models": [
+        "Qwen",
+        "Qwen Image",
+        "Wan"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://chat.qwen.ai/",
+      "linkCn": "https://www.qianwen.com/"
+    },
+    {
+      "name": "ChatGPT",
+      "company": "OpenAI",
+      "country": "USA",
+      "models": [
+        "GPT",
+        "GPT Image"
+      ],
+      "outputs": [
+        "Text",
+        "Image"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://chatgpt.com/",
+      "linkCn": ""
+    },
+    {
+      "name": "Grok",
+      "company": "xAI",
+      "country": "USA",
+      "models": [
+        "Grok",
+        "Grok Imagine"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://grok.com/",
+      "linkCn": ""
+    },
+    {
+      "name": "Claude",
+      "company": "Anthropic",
+      "country": "USA",
+      "models": [
+        "Claude"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://claude.ai/",
+      "linkCn": ""
+    },
+    {
+      "name": "Kimi",
+      "company": "Moonshot / 月之暗面",
+      "country": "China",
+      "models": [
+        "Kimi"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://www.kimi.com/",
+      "linkCn": "https://kimi.moonshot.cn/"
+    },
+    {
+      "name": "DeepSeek",
+      "company": "DeepSeek",
+      "country": "China",
+      "models": [
+        "DeepSeek"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://chat.deepseek.com/",
+      "linkCn": "https://chat.deepseek.com/"
+    },
+    {
+      "name": "Wan / 万相",
+      "company": "Alibaba / 阿里",
+      "country": "China",
+      "models": [
+        "Qwen Image",
+        "Wan"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://create.wan.video/",
+      "linkCn": "https://tongyi.aliyun.com/wan/explore"
+    },
+    {
+      "name": "Kling / 可灵",
+      "company": "Kuaishou / 快手",
+      "country": "China",
+      "models": [
+        "Kling Image",
+        "Kling Video"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://kling.ai/app",
+      "linkCn": "https://klingai.com/app"
+    },
+    {
+      "name": "Vidu",
+      "company": "ShengShu / 生数",
+      "country": "China",
+      "models": [
+        "Vidu"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://www.vidu.com/home/recommend",
+      "linkCn": "https://www.vidu.cn/home/recommend"
+    },
+    {
+      "name": "Hailuo / 海螺",
+      "company": "MiniMax",
+      "country": "China",
+      "models": [
+        "Hailuo Image",
+        "Hailuo"
+      ],
+      "outputs": [
+        "Image",
+        "Video"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://hailuoai.video/",
+      "linkCn": "https://hailuoai.com/"
+    },
+    {
+      "name": "Runway",
+      "company": "Runway",
+      "country": "USA",
+      "models": [
+        "Runway Gen",
+        "Runway Act"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio",
+        "Avatar"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://runwayml.com/",
+      "linkCn": ""
+    },
+    {
+      "name": "MiniMax Audio",
+      "company": "MiniMax",
+      "country": "China",
+      "models": [
+        "Minimax Speech",
+        "Minimax Music"
+      ],
+      "outputs": [
+        "Speech",
+        "Music"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://www.minimax.io/audio",
+      "linkCn": "https://www.minimaxi.com/audio"
+    },
+    {
+      "name": "Suno",
+      "company": "Suno",
+      "country": "USA",
+      "models": [
+        "Suno"
+      ],
+      "outputs": [
+        "Music"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://suno.com/",
+      "linkCn": ""
+    },
+    {
+      "name": "ElevenLabs",
+      "company": "ElevenLabs",
+      "country": "USA",
+      "models": [
+        "Eleven",
+        "Eleven Music",
+        "Eleven SFX"
+      ],
+      "outputs": [
+        "Speech",
+        "Music",
+        "Sound Effect"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://elevenlabs.io/",
+      "linkCn": ""
+    },
+    {
+      "name": "HeyGen",
+      "company": "HeyGen",
+      "country": "USA",
+      "models": [
+        "HeyGen Avatar"
+      ],
+      "outputs": [
+        "Avatar"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://app.heygen.com/home",
+      "linkCn": ""
+    },
+    {
+      "name": "Cursor",
+      "company": "Anysphere",
+      "country": "USA",
+      "models": [
+        "Cursor Composer"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "Local Workspace",
+      "linkIntl": "https://www.cursor.com/",
+      "linkCn": ""
+    },
+    {
+      "name": "Trae",
+      "company": "ByteDance / 字节",
+      "country": "China",
+      "models": [
+        "Seed"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "Local Workspace",
+      "linkIntl": "https://www.trae.ai/",
+      "linkCn": "https://www.trae.cn"
+    },
+    {
+      "name": "Claude Code",
+      "company": "Anthropic",
+      "country": "USA",
+      "models": [
+        "Claude"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "Local Workspace",
+      "linkIntl": "https://code.claude.com/docs/en/overview",
+      "linkCn": ""
+    },
+    {
+      "name": "NotebookLM",
+      "company": "Google",
+      "country": "USA",
+      "models": [
+        "Gemini",
+        "Nano Banana",
+        "Veo"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "Knowledge Base",
+      "linkIntl": "https://notebooklm.google.com/",
+      "linkCn": ""
+    },
+    {
+      "name": "ima.copilot",
+      "company": "Tencent / 腾讯",
+      "country": "China",
+      "models": [
+        "Hunyuan",
+        "HunyuanImage"
+      ],
+      "outputs": [
+        "Text",
+        "Image"
+      ],
+      "type": "Knowledge Base",
+      "linkIntl": "",
+      "linkCn": "https://ima.qq.com/"
+    },
+    {
+      "name": "Lark / 飞书",
+      "company": "ByteDance / 字节",
+      "country": "China",
+      "models": [
+        "Seed",
+        "Seedream",
+        "Seedance"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "Collaboration Suite",
+      "linkIntl": "https://www.larksuite.com/",
+      "linkCn": "https://www.feishu.cn/"
+    },
+    {
+      "name": "Codex",
+      "company": "OpenAI",
+      "country": "USA",
+      "models": [
+        "GPT",
+        "GPT Image"
+      ],
+      "outputs": [
+        "Text",
+        "Image"
+      ],
+      "type": "Local Workspace",
+      "linkIntl": "https://chatgpt.com/codex",
+      "linkCn": ""
+    },
+    {
+      "name": "Google Workspace",
+      "company": "Google",
+      "country": "USA",
+      "models": [
+        "Gemini",
+        "Nano Banana",
+        "Veo",
+        "Lyria"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio",
+        "Music"
+      ],
+      "type": "Collaboration Suite",
+      "linkIntl": "https://workspace.google.com/",
+      "linkCn": ""
+    },
+    {
+      "name": "Midjourney",
+      "company": "Midjourney",
+      "country": "USA",
+      "models": [
+        "Midjourney"
+      ],
+      "outputs": [
+        "Image"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "",
+      "linkCn": ""
+    },
+    {
+      "name": "Yuanbao / 元宝",
+      "company": "Tencent / 腾讯",
+      "country": "China",
+      "models": [
+        "Hunyuan",
+        "HunyuanImage",
+        "HunyuanVideo"
+      ],
+      "outputs": [
+        "Text",
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "",
+      "linkCn": "https://yuanbao.tencent.com/"
+    },
+    {
+      "name": "Z.ai / 智谱",
+      "company": "Z.ai / 智谱",
+      "country": "China",
+      "models": [
+        "GLM"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "General Assistant",
+      "linkIntl": "https://chat.z.ai/",
+      "linkCn": "https://www.zhipuai.cn/"
+    },
+    {
+      "name": "WorkBuddy",
+      "company": "Tencent / 腾讯",
+      "country": "China",
+      "models": [
+        "Hunyuan"
+      ],
+      "outputs": [
+        "Text"
+      ],
+      "type": "Local Workspace",
+      "linkIntl": "https://www.codebuddy.ai/",
+      "linkCn": "https://copilot.tencent.com/work/"
+    },
+    {
+      "name": "Mixboard",
+      "company": "Google",
+      "country": "USA",
+      "models": [
+        "Nano Banana"
+      ],
+      "outputs": [
+        "Image"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://labs.google.com/mixboard/welcome",
+      "linkCn": ""
+    },
+    {
+      "name": "Flow",
+      "company": "Google",
+      "country": "USA",
+      "models": [
+        "Nano Banana",
+        "Veo"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ],
+      "type": "Creative Platform",
+      "linkIntl": "https://labs.google/flow/about",
+      "linkCn": ""
+    }
+  ],
+  "companies": [
+    {
+      "name": "Alibaba / 阿里",
+      "country": "China",
+      "apps": [
+        "Wan / 万相",
+        "Qwen / 千问"
+      ],
+      "models": [
+        "Qwen",
+        "Qwen Image",
+        "Wan"
+      ]
+    },
+    {
+      "name": "Anthropic",
+      "country": "USA",
+      "apps": [
+        "Claude",
+        "Claude Code"
+      ],
+      "models": [
+        "Claude"
+      ]
+    },
+    {
+      "name": "Anysphere",
+      "country": "USA",
+      "apps": [
+        "Cursor"
+      ],
+      "models": [
+        "Cursor Composer"
+      ]
+    },
+    {
+      "name": "ByteDance / 字节",
+      "country": "China",
+      "apps": [
+        "Trae",
+        "Jimeng / 即梦",
+        "Doubao / 豆包",
+        "Lark / 飞书"
+      ],
+      "models": [
+        "Seed",
+        "Seedream",
+        "Seedance"
+      ]
+    },
+    {
+      "name": "ElevenLabs",
+      "country": "USA",
+      "apps": [
+        "ElevenLabs"
+      ],
+      "models": [
+        "Eleven",
+        "Eleven SFX",
+        "Eleven Music"
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "country": "China",
+      "apps": [
+        "DeepSeek"
+      ],
+      "models": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "name": "Google",
+      "country": "USA",
+      "apps": [
+        "Gemini",
+        "Mixboard",
+        "Flow",
+        "Antigravity",
+        "NotebookLM",
+        "Google Workspace"
+      ],
+      "models": [
+        "Gemini",
+        "Nano Banana",
+        "Veo",
+        "Lyria"
+      ]
+    },
+    {
+      "name": "HeyGen",
+      "country": "USA",
+      "apps": [
+        "HeyGen"
+      ],
+      "models": [
+        "HeyGen Avatar"
+      ]
+    },
+    {
+      "name": "Kuaishou / 快手",
+      "country": "China",
+      "apps": [
+        "Kling / 可灵"
+      ],
+      "models": [
+        "Kling Image",
+        "Kling Video"
+      ]
+    },
+    {
+      "name": "MiniMax",
+      "country": "China",
+      "apps": [
+        "Hailuo / 海螺",
+        "MiniMax Audio"
+      ],
+      "models": [
+        "Hailuo Image",
+        "Hailuo",
+        "Minimax Speech",
+        "Minimax Music"
+      ]
+    },
+    {
+      "name": "Moonshot / 月之暗面",
+      "country": "China",
+      "apps": [
+        "Kimi"
+      ],
+      "models": [
+        "Kimi"
+      ]
+    },
+    {
+      "name": "OpenAI",
+      "country": "USA",
+      "apps": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "models": [
+        "GPT",
+        "GPT Image"
+      ]
+    },
+    {
+      "name": "Runway",
+      "country": "USA",
+      "apps": [
+        "Runway"
+      ],
+      "models": [
+        "Runway Gen",
+        "Runway Act"
+      ]
+    },
+    {
+      "name": "ShengShu / 生数",
+      "country": "China",
+      "apps": [
+        "Vidu"
+      ],
+      "models": [
+        "Vidu"
+      ]
+    },
+    {
+      "name": "Suno",
+      "country": "USA",
+      "apps": [
+        "Suno"
+      ],
+      "models": [
+        "Suno"
+      ]
+    },
+    {
+      "name": "Tencent / 腾讯",
+      "country": "China",
+      "apps": [
+        "Yuanbao / 元宝",
+        "WorkBuddy",
+        "ima.copilot"
+      ],
+      "models": [
+        "Hunyuan",
+        "HunyuanImage",
+        "HunyuanVideo"
+      ]
+    },
+    {
+      "name": "xAI",
+      "country": "USA",
+      "apps": [
+        "Grok"
+      ],
+      "models": [
+        "Grok",
+        "Grok Imagine"
+      ]
+    },
+    {
+      "name": "Midjourney",
+      "country": "USA",
+      "apps": [
+        "Midjourney"
+      ],
+      "models": [
+        "Midjourney"
+      ]
+    },
+    {
+      "name": "Z.ai / 智谱",
+      "country": "China",
+      "apps": [
+        "Z.ai / 智谱"
+      ],
+      "models": [
+        "GLM"
+      ]
+    },
+    {
+      "name": "Meituan / 美团",
+      "country": "China",
+      "apps": [],
+      "models": [
+        "InfiniteTalk"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "name": "Veo",
+      "company": "Google",
+      "country": "USA",
+      "apps": [
+        "Gemini",
+        "NotebookLM",
+        "Google Workspace",
+        "Flow"
+      ],
+      "outputs": [
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "Gemini",
+      "company": "Google",
+      "country": "USA",
+      "apps": [
+        "Gemini",
+        "NotebookLM",
+        "Google Workspace",
+        "Antigravity"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "Lyria",
+      "company": "Google",
+      "country": "USA",
+      "apps": [
+        "Gemini",
+        "Google Workspace"
+      ],
+      "outputs": [
+        "Music"
+      ]
+    },
+    {
+      "name": "Nano Banana",
+      "company": "Google",
+      "country": "USA",
+      "apps": [
+        "Gemini",
+        "NotebookLM",
+        "Google Workspace",
+        "Antigravity",
+        "Mixboard",
+        "Flow"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "Claude",
+      "company": "Anthropic",
+      "country": "USA",
+      "apps": [
+        "Claude",
+        "Claude Code"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "Seedance",
+      "company": "ByteDance / 字节",
+      "country": "China",
+      "apps": [
+        "Doubao / 豆包",
+        "Jimeng / 即梦",
+        "Lark / 飞书"
+      ],
+      "outputs": [
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "Seedream",
+      "company": "ByteDance / 字节",
+      "country": "China",
+      "apps": [
+        "Doubao / 豆包",
+        "Jimeng / 即梦",
+        "Lark / 飞书"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "GPT",
+      "company": "OpenAI",
+      "country": "USA",
+      "apps": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "GPT Image",
+      "company": "OpenAI",
+      "country": "USA",
+      "apps": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "Grok",
+      "company": "xAI",
+      "country": "USA",
+      "apps": [
+        "Grok"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "Grok Imagine",
+      "company": "xAI",
+      "country": "USA",
+      "apps": [
+        "Grok"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "Seed",
+      "company": "ByteDance / 字节",
+      "country": "China",
+      "apps": [
+        "Doubao / 豆包",
+        "Lark / 飞书",
+        "Trae"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "Qwen",
+      "company": "Alibaba / 阿里",
+      "country": "China",
+      "apps": [
+        "Qwen / 千问"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "Qwen Image",
+      "company": "Alibaba / 阿里",
+      "country": "China",
+      "apps": [
+        "Qwen / 千问",
+        "Wan / 万相"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "Wan",
+      "company": "Alibaba / 阿里",
+      "country": "China",
+      "apps": [
+        "Qwen / 千问",
+        "Wan / 万相"
+      ],
+      "outputs": [
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "company": "DeepSeek",
+      "country": "China",
+      "apps": [
+        "DeepSeek"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "Kimi",
+      "company": "Moonshot / 月之暗面",
+      "country": "China",
+      "apps": [
+        "Kimi"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "Kling Image",
+      "company": "Kuaishou / 快手",
+      "country": "China",
+      "apps": [
+        "Kling / 可灵"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "Kling Video",
+      "company": "Kuaishou / 快手",
+      "country": "China",
+      "apps": [
+        "Kling / 可灵"
+      ],
+      "outputs": [
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "Vidu",
+      "company": "ShengShu / 生数",
+      "country": "China",
+      "apps": [
+        "Vidu"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "Midjourney",
+      "company": "Midjourney",
+      "country": "USA",
+      "apps": [
+        "Midjourney"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "Hailuo",
+      "company": "MiniMax",
+      "country": "China",
+      "apps": [
+        "Hailuo / 海螺"
+      ],
+      "outputs": [
+        "Video"
+      ]
+    },
+    {
+      "name": "Hailuo Image",
+      "company": "MiniMax",
+      "country": "China",
+      "apps": [
+        "Hailuo / 海螺"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "Minimax Speech",
+      "company": "MiniMax",
+      "country": "China",
+      "apps": [
+        "MiniMax Audio"
+      ],
+      "outputs": [
+        "Speech"
+      ]
+    },
+    {
+      "name": "Minimax Music",
+      "company": "MiniMax",
+      "country": "China",
+      "apps": [
+        "MiniMax Audio"
+      ],
+      "outputs": [
+        "Music"
+      ]
+    },
+    {
+      "name": "Eleven",
+      "company": "ElevenLabs",
+      "country": "USA",
+      "apps": [
+        "ElevenLabs"
+      ],
+      "outputs": [
+        "Speech"
+      ]
+    },
+    {
+      "name": "Eleven Music",
+      "company": "ElevenLabs",
+      "country": "USA",
+      "apps": [
+        "ElevenLabs"
+      ],
+      "outputs": [
+        "Music"
+      ]
+    },
+    {
+      "name": "Eleven SFX",
+      "company": "ElevenLabs",
+      "country": "USA",
+      "apps": [
+        "ElevenLabs"
+      ],
+      "outputs": [
+        "Sound Effect"
+      ]
+    },
+    {
+      "name": "Suno",
+      "company": "Suno",
+      "country": "USA",
+      "apps": [
+        "Suno"
+      ],
+      "outputs": [
+        "Music"
+      ]
+    },
+    {
+      "name": "Cursor Composer",
+      "company": "Anysphere",
+      "country": "USA",
+      "apps": [
+        "Cursor"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "HeyGen Avatar",
+      "company": "HeyGen",
+      "country": "USA",
+      "apps": [
+        "HeyGen"
+      ],
+      "outputs": [
+        "Avatar"
+      ]
+    },
+    {
+      "name": "Runway Gen",
+      "company": "Runway",
+      "country": "USA",
+      "apps": [
+        "Runway"
+      ],
+      "outputs": [
+        "Image",
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "Runway Act",
+      "company": "Runway",
+      "country": "USA",
+      "apps": [
+        "Runway"
+      ],
+      "outputs": [
+        "Avatar"
+      ]
+    },
+    {
+      "name": "Hunyuan",
+      "company": "Tencent / 腾讯",
+      "country": "China",
+      "apps": [
+        "Yuanbao / 元宝",
+        "ima.copilot",
+        "WorkBuddy"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "HunyuanImage",
+      "company": "Tencent / 腾讯",
+      "country": "China",
+      "apps": [
+        "Yuanbao / 元宝",
+        "ima.copilot"
+      ],
+      "outputs": [
+        "Image"
+      ]
+    },
+    {
+      "name": "HunyuanVideo",
+      "company": "Tencent / 腾讯",
+      "country": "China",
+      "apps": [
+        "Yuanbao / 元宝"
+      ],
+      "outputs": [
+        "Video & Audio"
+      ]
+    },
+    {
+      "name": "GLM",
+      "company": "Z.ai / 智谱",
+      "country": "China",
+      "apps": [
+        "Z.ai / 智谱"
+      ],
+      "outputs": [
+        "Text"
+      ]
+    },
+    {
+      "name": "InfiniteTalk",
+      "company": "Meituan / 美团",
+      "country": "China",
+      "apps": [],
+      "outputs": [
+        "Avatar"
+      ]
+    }
+  ]
+}
