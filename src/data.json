@@ -1,4 +1,60 @@
 {
+  "types": [
+    {
+      "name": "General Assistant",
+      "sorting": 1
+    },
+    {
+      "name": "Local Workspace",
+      "sorting": 3
+    },
+    {
+      "name": "Creative Platform",
+      "sorting": 2
+    },
+    {
+      "name": "Knowledge Base",
+      "sorting": 4
+    },
+    {
+      "name": "Collaboration Suite",
+      "sorting": 5
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Text",
+      "sorting": 1
+    },
+    {
+      "name": "Image",
+      "sorting": 2
+    },
+    {
+      "name": "Video & Audio",
+      "sorting": 3
+    },
+    {
+      "name": "Video",
+      "sorting": 4
+    },
+    {
+      "name": "Avatar",
+      "sorting": 5
+    },
+    {
+      "name": "Speech",
+      "sorting": 6
+    },
+    {
+      "name": "Music",
+      "sorting": 7
+    },
+    {
+      "name": "Sound Effect",
+      "sorting": 8
+    }
+  ],
   "apps": [
     {
       "name": "Gemini",

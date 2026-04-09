@@ -42,7 +42,42 @@ const rawApps = readCSV(appsFile);
 const rawCompanies = readCSV(companiesFile);
 const rawModels = readCSV(modelsFile);
 
+const uniqueTypes = [...new Set(rawApps.map(row => cleanString(row['Type'])).filter(Boolean))];
+const typeSorting = {
+    "General Assistant": 1,
+    "Creative Platform": 2,
+    "Local Workspace": 3,
+    "Knowledge Base": 4,
+    "Collaboration Suite": 5
+};
+const exportedTypes = uniqueTypes.map(name => ({
+    name,
+    sorting: typeSorting[name] || 999
+}));
+
+const allRawOutputs = [
+    ...rawApps.flatMap(r => parseList(r['Proprietary Output'])),
+    ...rawModels.flatMap(r => parseList(r['Output']))
+];
+const uniqueOutputs = [...new Set(allRawOutputs)];
+const outputSorting = {
+    "Text": 1,
+    "Image": 2,
+    "Video & Audio": 3,
+    "Video": 4,
+    "Avatar": 5,
+    "Speech": 6,
+    "Music": 7,
+    "Sound Effect": 8
+};
+const exportedOutputs = uniqueOutputs.map(name => ({
+    name,
+    sorting: outputSorting[name] || 999
+}));
+
 const data = {
+    types: exportedTypes,
+    outputs: exportedOutputs,
     apps: rawApps.map(row => ({
         name: cleanString(row['Name / 名称']),
         company: cleanString(row['Company']),

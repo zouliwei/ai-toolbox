@@ -1,7 +1,15 @@
 import { useState, useMemo } from 'react';
 import './App.css';
-import db from './data.json';
+import dbJson from './data.json';
 import type { AIApp, AICompany, AIModel } from './types';
+
+const db = dbJson as {
+  types?: { name: string; sorting: number }[];
+  outputs?: { name: string; sorting: number }[];
+  apps: AIApp[];
+  companies: AICompany[];
+  models: AIModel[];
+};
 
 type Tab = 'Apps' | 'Models' | 'Companies';
 
@@ -15,7 +23,12 @@ function App() {
   const [selectedOutputs, setSelectedOutputs] = useState<Set<string>>(new Set());
 
   // Aggregate possibilities for filters
-  const allTypes = useMemo(() => Array.from(new Set(db.apps.map(a => a.type).filter(Boolean))).sort(), []);
+  const allTypes = useMemo(() => {
+    if (db.types) {
+      return [...db.types].sort((a, b) => a.sorting - b.sorting).map(t => t.name);
+    }
+    return Array.from(new Set(db.apps.map(a => a.type).filter(Boolean))).sort();
+  }, []);
   const allCountries = useMemo(() => {
     let list: string[] = [];
     if (activeTab === 'Apps') list = db.apps.map(a => a.country);
@@ -24,11 +37,14 @@ function App() {
     return Array.from(new Set(list.filter(Boolean))).sort();
   }, [activeTab]);
   const allOutputs = useMemo(() => {
+    if (db.outputs) {
+      return [...db.outputs].sort((a, b) => a.sorting - b.sorting).map(t => t.name);
+    }
     let list: string[] = [];
     if (activeTab === 'Apps') list = db.apps.flatMap(a => a.outputs);
     else if (activeTab === 'Models') list = db.models.flatMap(m => m.outputs);
     return Array.from(new Set(list.filter(Boolean))).sort();
-  }, [activeTab]);
+  }, /* don't strictly recreate based on activeTab anymore since db.outputs provides everything, or just fallback depends on tab */ [activeTab]);
 
   // Handle Tab Switch (reset filters)
   const handleTabSwitch = (tab: Tab) => {
@@ -80,7 +96,7 @@ function App() {
       {/* SIDEBAR */}
       <aside className="sidebar">
         <div className="title-group">
-          <h1>DIRECTORY</h1>
+          <h1>AI Navigator</h1>
         </div>
 
         <input
@@ -90,15 +106,6 @@ function App() {
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
-
-        {activeTab === 'Apps' && (
-          <FilterSection 
-            title="Type" 
-            options={allTypes} 
-            selected={selectedTypes} 
-            onChange={(val) => toggleFilter(selectedTypes, val, setSelectedTypes)} 
-          />
-        )}
 
         {(activeTab === 'Apps' || activeTab === 'Models' || activeTab === 'Companies') && (
           <FilterSection 
@@ -115,6 +122,15 @@ function App() {
             options={allOutputs} 
             selected={selectedOutputs} 
             onChange={(val) => toggleFilter(selectedOutputs, val, setSelectedOutputs)} 
+          />
+        )}
+
+        {activeTab === 'Apps' && (
+          <FilterSection 
+            title="Type" 
+            options={allTypes} 
+            selected={selectedTypes} 
+            onChange={(val) => toggleFilter(selectedTypes, val, setSelectedTypes)} 
           />
         )}
       </aside>
@@ -186,14 +202,14 @@ function AppCard({ app }: { app: AIApp }) {
       <div className="card-body">
         <div className="data-row">
           <span className="data-label">Type</span>
-          <span className="data-value">{app.type || '-'}</span>
+          <PillList items={app.type ? [app.type] : []} />
         </div>
         <div className="data-row">
-          <span className="data-label">Proprietary Output</span>
+          <span className="data-label">Output</span>
           <PillList items={app.outputs} />
         </div>
         <div className="data-row">
-          <span className="data-label">Models</span>
+          <span className="data-label">Proprietary MODELS</span>
           <PillList items={app.models} />
         </div>
       </div>
