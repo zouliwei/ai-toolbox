@@ -157,7 +157,11 @@ function App() {
         item.name.toLowerCase().includes(q) ||
         (item.nameCn?.toLowerCase().includes(q) ?? false) ||
         item.company.toLowerCase().includes(q) ||
-        (companyObj?.nameCn?.toLowerCase().includes(q) ?? false);
+        (companyObj?.nameCn?.toLowerCase().includes(q) ?? false) ||
+        item.models.some(mName => {
+          const m = db.models.find(model => model.name === mName);
+          return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false);
+        });
       const matchType = selectedTypes.size === 0 || selectedTypes.has(item.type);
       const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
       const matchOutput = selectedOutputs.size === 0 || item.outputs.some(o => selectedOutputs.has(o));
@@ -170,7 +174,15 @@ function App() {
     return db.companies.filter(item => {
       const matchSearch =
         item.name.toLowerCase().includes(q) ||
-        (item.nameCn?.toLowerCase().includes(q) ?? false);
+        (item.nameCn?.toLowerCase().includes(q) ?? false) ||
+        item.apps.some(aName => {
+          const a = db.apps.find(app => app.name === aName);
+          return aName.toLowerCase().includes(q) || (a?.nameCn?.toLowerCase().includes(q) ?? false);
+        }) ||
+        item.models.some(mName => {
+          const m = db.models.find(model => model.name === mName);
+          return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false);
+        });
       const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
       return matchSearch && matchCountry;
     });
@@ -184,7 +196,11 @@ function App() {
         item.name.toLowerCase().includes(q) ||
         (item.nameCn?.toLowerCase().includes(q) ?? false) ||
         item.company.toLowerCase().includes(q) ||
-        (companyObj?.nameCn?.toLowerCase().includes(q) ?? false);
+        (companyObj?.nameCn?.toLowerCase().includes(q) ?? false) ||
+        item.apps.some(aName => {
+          const a = db.apps.find(app => app.name === aName);
+          return aName.toLowerCase().includes(q) || (a?.nameCn?.toLowerCase().includes(q) ?? false);
+        });
       const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
       const matchOutput = selectedOutputs.size === 0 || item.outputs.some(o => selectedOutputs.has(o));
       return matchSearch && matchCountry && matchOutput;
