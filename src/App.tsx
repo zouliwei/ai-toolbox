@@ -88,8 +88,8 @@ function App() {
   const [viewMode, setViewMode] = useState<ViewMode>(() => {
     try {
       const stored = localStorage.getItem('ai-nav-view-mode');
-      return (stored === 'adventure' ? 'adventure' : 'classic') as ViewMode;
-    } catch { return 'classic'; }
+      return (stored === 'classic' ? 'classic' : 'adventure') as ViewMode;
+    } catch { return 'adventure'; }
   });
 
   useEffect(() => {
