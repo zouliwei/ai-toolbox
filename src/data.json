@@ -3,59 +3,70 @@
     {
       "name": "General Assistant",
       "nameCn": "通用助手",
-      "sorting": 1
+      "sorting": 1,
+      "nameTw": "通用助手"
     },
     {
       "name": "Creative Platform",
       "nameCn": "创作平台",
-      "sorting": 2
+      "sorting": 2,
+      "nameTw": "創作平台"
     },
     {
       "name": "Local Workspace",
       "nameCn": "本地工作台",
-      "sorting": 3
+      "sorting": 3,
+      "nameTw": "本機工作區"
     },
     {
       "name": "Knowledge Base",
       "nameCn": "知识库",
-      "sorting": 4
+      "sorting": 4,
+      "nameTw": "知識庫"
     }
   ],
   "outputs": [
     {
       "name": "Text",
       "nameCn": "文字",
-      "sorting": 1
+      "sorting": 1,
+      "nameTw": "文字"
     },
     {
       "name": "Image",
       "nameCn": "图片",
-      "sorting": 2
+      "sorting": 2,
+      "nameTw": "圖片"
     },
     {
       "name": "Video",
       "nameCn": "视频",
-      "sorting": 3
+      "sorting": 3,
+      "nameTw": "影片"
     },
     {
       "name": "Avatar",
       "nameCn": "虚拟人",
-      "sorting": 4
+      "sorting": 4,
+      "nameTw": "數位人"
     },
     {
       "name": "Speech",
       "nameCn": "语音",
-      "sorting": 5
+      "sorting": 5,
+      "nameTw": "語音"
     },
     {
       "name": "Music",
       "nameCn": "音乐",
-      "sorting": 6
+      "sorting": 6,
+      "nameTw": "音樂"
     },
     {
       "name": "Sound Effect",
       "nameCn": "音效",
-      "sorting": 7
+      "sorting": 7,
+      "nameTw": "音效"
     }
   ],
   "apps": [
@@ -111,7 +122,8 @@
       ],
       "type": "Creative Platform",
       "linkIntl": "https://dreamina.capcut.com/ai-tool/home",
-      "linkCn": "https://jimeng.jianying.com/ai-tool/home"
+      "linkCn": "https://jimeng.jianying.com/ai-tool/home",
+      "nameTw": "即夢"
     },
     {
       "name": "Doubao",
@@ -130,7 +142,8 @@
       ],
       "type": "General Assistant",
       "linkIntl": "",
-      "linkCn": "https://www.doubao.com/"
+      "linkCn": "https://www.doubao.com/",
+      "nameTw": "豆包"
     },
     {
       "name": "Qwen",
@@ -149,7 +162,8 @@
       ],
       "type": "General Assistant",
       "linkIntl": "https://chat.qwen.ai/",
-      "linkCn": "https://www.qianwen.com/"
+      "linkCn": "https://www.qianwen.com/",
+      "nameTw": "千問"
     },
     {
       "name": "ChatGPT",
@@ -242,7 +256,8 @@
       ],
       "type": "Creative Platform",
       "linkIntl": "https://create.wan.video/",
-      "linkCn": "https://tongyi.aliyun.com/wan/explore"
+      "linkCn": "https://tongyi.aliyun.com/wan/explore",
+      "nameTw": "萬相"
     },
     {
       "name": "Kling",
@@ -260,7 +275,8 @@
       ],
       "type": "Creative Platform",
       "linkIntl": "https://kling.ai/app",
-      "linkCn": "https://klingai.com/app"
+      "linkCn": "https://klingai.com/app",
+      "nameTw": "可靈"
     },
     {
       "name": "Vidu",
@@ -293,7 +309,8 @@
       ],
       "type": "Creative Platform",
       "linkIntl": "https://hailuoai.video/",
-      "linkCn": "https://hailuoai.com/"
+      "linkCn": "https://hailuoai.com/",
+      "nameTw": "海螺"
     },
     {
       "name": "Runway",
@@ -469,7 +486,8 @@
       ],
       "type": "Knowledge Base",
       "linkIntl": "https://www.larksuite.com/",
-      "linkCn": "https://www.feishu.cn/"
+      "linkCn": "https://www.feishu.cn/",
+      "nameTw": "飛書"
     },
     {
       "name": "Codex",
@@ -538,7 +556,8 @@
       ],
       "type": "General Assistant",
       "linkIntl": "",
-      "linkCn": "https://yuanbao.tencent.com/"
+      "linkCn": "https://yuanbao.tencent.com/",
+      "nameTw": "元寶"
     },
     {
       "name": "Z.ai",
@@ -553,7 +572,8 @@
       ],
       "type": "General Assistant",
       "linkIntl": "https://chat.z.ai/",
-      "linkCn": "https://www.zhipuai.cn/"
+      "linkCn": "https://www.zhipuai.cn/",
+      "nameTw": "智譜"
     },
     {
       "name": "WorkBuddy",
@@ -613,7 +633,8 @@
         "Qwen",
         "Qwen Image",
         "Wan"
-      ]
+      ],
+      "nameTw": "阿里"
     },
     {
       "name": "Anthropic",
@@ -650,7 +671,8 @@
         "Seed",
         "Seedream",
         "Seedance"
-      ]
+      ],
+      "nameTw": "字節"
     },
     {
       "name": "ElevenLabs",
@@ -712,7 +734,8 @@
       "models": [
         "Kling Image",
         "Kling Video"
-      ]
+      ],
+      "nameTw": "快手"
     },
     {
       "name": "MiniMax",
@@ -737,7 +760,8 @@
       ],
       "models": [
         "Kimi"
-      ]
+      ],
+      "nameTw": "月之暗面"
     },
     {
       "name": "OpenAI",
@@ -771,7 +795,8 @@
       ],
       "models": [
         "Vidu"
-      ]
+      ],
+      "nameTw": "生數"
     },
     {
       "name": "Suno",
@@ -796,7 +821,8 @@
         "Hunyuan",
         "HunyuanImage",
         "HunyuanVideo"
-      ]
+      ],
+      "nameTw": "騰訊"
     },
     {
       "name": "xAI",
@@ -828,7 +854,8 @@
       ],
       "models": [
         "GLM"
-      ]
+      ],
+      "nameTw": "智譜"
     },
     {
       "name": "Meituan",
@@ -837,7 +864,8 @@
       "apps": [],
       "models": [
         "InfiniteTalk"
-      ]
+      ],
+      "nameTw": "美團"
     }
   ],
   "models": [

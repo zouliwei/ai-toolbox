@@ -1,6 +1,7 @@
 export interface AIApp {
   name: string;
   nameCn?: string;
+  nameTw?: string;
   company: string;
   country: string;
   models: string[];
@@ -13,6 +14,7 @@ export interface AIApp {
 export interface AICompany {
   name: string;
   nameCn?: string;
+  nameTw?: string;
   country: string;
   apps: string[];
   models: string[];
@@ -21,6 +23,7 @@ export interface AICompany {
 export interface AIModel {
   name: string;
   nameCn?: string;
+  nameTw?: string;
   company: string;
   country: string;
   apps: string[];

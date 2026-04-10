@@ -8,75 +8,81 @@ type ViewMode = 'classic' | 'adventure';
 
 // ─── TYPE AUGMENTATIONS FOR ENRICHED JSON ────────────────────────────────────
 const db = dbJson as {
-  types?: { name: string; nameCn?: string; sorting: number }[];
-  outputs?: { name: string; nameCn?: string; sorting: number }[];
+  types?: { name: string; nameCn?: string; nameTw?: string; sorting: number }[];
+  outputs?: { name: string; nameCn?: string; nameTw?: string; sorting: number }[];
   apps: AIApp[];
   companies: AICompany[];
   models: AIModel[];
 };
 
+type Language = 'en' | 'cn' | 'tw';
+
 // ─── STATIC TRANSLATIONS DICTIONARY ─────────────────────────────────────────
-const TITLES_DICT: Record<string, string> = {
-  'AI Navigator': 'AI 目录',
-  'Type': '类型',
-  'Output': '输出',
-  'Country': '国家',
-  'Used by Apps': '相关应用',
-  'Proprietary MODELS': '专属模型',
-  'Apps': '应用',
-  'Models': '模型',
-  'APPS': '应用',
-  'MODELS': '模型',
-  'COMPANIES': '公司',
-  'SEARCH...': '搜索...',
-  'Intl Site →': '国际链接 →',
-  'CN Site →': '国内链接 →',
+const TITLES_DICT: Record<string, { cn: string; tw: string }> = {
+  'AI Navigator': { cn: 'AI 目录', tw: 'AI 目錄' },
+  'Type': { cn: '类型', tw: '類型' },
+  'Output': { cn: '输出', tw: '輸出' },
+  'Country': { cn: '国家', tw: '國家' },
+  'Used by Apps': { cn: '相关应用', tw: '相關應用' },
+  'Proprietary MODELS': { cn: '专属模型', tw: '專屬模型' },
+  'Apps': { cn: '应用', tw: '應用' },
+  'Models': { cn: '模型', tw: '模型' },
+  'APPS': { cn: '应用', tw: '應用' },
+  'MODELS': { cn: '模型', tw: '模型' },
+  'COMPANIES': { cn: '公司', tw: '公司' },
+  'SEARCH...': { cn: '搜索...', tw: '搜尋...' },
+  'Intl Site →': { cn: '国际链接 →', tw: '國際連結 →' },
+  'CN Site →': { cn: '国内链接 →', tw: '國內連結 →' },
 };
 
-type Language = 'en' | 'cn';
+const COUNTRY_DICT: Record<string, { cn: string; tw: string }> = {
+  'China': { cn: '中国', tw: '中國' },
+  'USA': { cn: '美国', tw: '美國' },
+};
+
 type Tab = 'Apps' | 'Models' | 'Companies';
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 
 /** Translate a static UI string */
 function t(key: string, language: Language): string {
-  return language === 'cn' ? (TITLES_DICT[key] ?? key) : key;
+  if (language === 'en') return key;
+  return TITLES_DICT[key]?.[language] ?? key;
 }
 
 /** Resolve the display name of an item respecting language */
-function displayName(item: { name: string; nameCn?: string }, language: Language): string {
-  return language === 'cn' && item.nameCn ? item.nameCn : item.name;
+function displayName(item: { name: string; nameCn?: string; nameTw?: string }, language: Language): string {
+  if (language === 'en' || !item.nameCn) return item.name;
+  return language === 'tw' ? (item.nameTw || item.nameCn) : item.nameCn;
 }
 
 /** Look up a company's Chinese name from the companies list */
 function companyDisplayName(companyEnName: string, language: Language): string {
-  if (language !== 'cn') return companyEnName;
+  if (language === 'en') return companyEnName;
   const found = db.companies.find(c => c.name === companyEnName);
-  return (found?.nameCn) ? found.nameCn : companyEnName;
+  if (!found || !found.nameCn) return companyEnName;
+  return language === 'tw' ? (found.nameTw || found.nameCn) : found.nameCn;
 }
 
-/** Country name translations */
-const COUNTRY_DICT: Record<string, string> = {
-  'China': '中国',
-  'USA': '美国',
-};
-
 function countryDisplay(country: string, language: Language): string {
-  return language === 'cn' ? (COUNTRY_DICT[country] ?? country) : country;
+  if (language === 'en') return country;
+  return COUNTRY_DICT[country]?.[language] ?? country;
 }
 
 /** Translate a type string (e.g. "General Assistant" → "通用助手") */
 function typeDisplay(typeName: string, language: Language): string {
-  if (language !== 'cn') return typeName;
+  if (language === 'en') return typeName;
   const found = db.types?.find(t => t.name === typeName);
-  return found?.nameCn ?? typeName;
+  if (!found || !found.nameCn) return typeName;
+  return language === 'tw' ? (found.nameTw || found.nameCn) : found.nameCn;
 }
 
 /** Translate an output string (e.g. "Text" → "文字") */
 function outputDisplay(outputName: string, language: Language): string {
-  if (language !== 'cn') return outputName;
+  if (language === 'en') return outputName;
   const found = db.outputs?.find(o => o.name === outputName);
-  return found?.nameCn ?? outputName;
+  if (!found || !found.nameCn) return outputName;
+  return language === 'tw' ? (found.nameTw || found.nameCn) : found.nameCn;
 }
 
 // ─── APP COMPONENT ────────────────────────────────────────────────────────────
@@ -111,7 +117,7 @@ function App() {
     }
     return Array.from(new Set(db.apps.map(a => a.type).filter(Boolean)))
       .sort()
-      .map(name => ({ name, nameCn: undefined, sorting: 0 }));
+      .map(name => ({ name, nameCn: undefined, nameTw: undefined, sorting: 0 }));
   }, []);
 
   const allCountries = useMemo(() => {
@@ -131,7 +137,7 @@ function App() {
     else if (activeTab === 'Models') list = db.models.flatMap(m => m.outputs);
     return Array.from(new Set(list.filter(Boolean)))
       .sort()
-      .map(name => ({ name, nameCn: undefined, sorting: 0 }));
+      .map(name => ({ name, nameCn: undefined, nameTw: undefined, sorting: 0 }));
   }, [activeTab]);
 
   // ─── TAB + FILTER HANDLERS ──────────────────────────────────────────────────
@@ -156,11 +162,13 @@ function App() {
       const matchSearch =
         item.name.toLowerCase().includes(q) ||
         (item.nameCn?.toLowerCase().includes(q) ?? false) ||
+        (item.nameTw?.toLowerCase().includes(q) ?? false) ||
         item.company.toLowerCase().includes(q) ||
         (companyObj?.nameCn?.toLowerCase().includes(q) ?? false) ||
+        (companyObj?.nameTw?.toLowerCase().includes(q) ?? false) ||
         item.models.some(mName => {
           const m = db.models.find(model => model.name === mName);
-          return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false);
+          return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false) || (m?.nameTw?.toLowerCase().includes(q) ?? false);
         });
       const matchType = selectedTypes.size === 0 || selectedTypes.has(item.type);
       const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
@@ -175,13 +183,14 @@ function App() {
       const matchSearch =
         item.name.toLowerCase().includes(q) ||
         (item.nameCn?.toLowerCase().includes(q) ?? false) ||
+        (item.nameTw?.toLowerCase().includes(q) ?? false) ||
         item.apps.some(aName => {
           const a = db.apps.find(app => app.name === aName);
-          return aName.toLowerCase().includes(q) || (a?.nameCn?.toLowerCase().includes(q) ?? false);
+          return aName.toLowerCase().includes(q) || (a?.nameCn?.toLowerCase().includes(q) ?? false) || (a?.nameTw?.toLowerCase().includes(q) ?? false);
         }) ||
         item.models.some(mName => {
           const m = db.models.find(model => model.name === mName);
-          return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false);
+          return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false) || (m?.nameTw?.toLowerCase().includes(q) ?? false);
         });
       const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
       return matchSearch && matchCountry;
@@ -195,11 +204,13 @@ function App() {
       const matchSearch =
         item.name.toLowerCase().includes(q) ||
         (item.nameCn?.toLowerCase().includes(q) ?? false) ||
+        (item.nameTw?.toLowerCase().includes(q) ?? false) ||
         item.company.toLowerCase().includes(q) ||
         (companyObj?.nameCn?.toLowerCase().includes(q) ?? false) ||
+        (companyObj?.nameTw?.toLowerCase().includes(q) ?? false) ||
         item.apps.some(aName => {
           const a = db.apps.find(app => app.name === aName);
-          return aName.toLowerCase().includes(q) || (a?.nameCn?.toLowerCase().includes(q) ?? false);
+          return aName.toLowerCase().includes(q) || (a?.nameCn?.toLowerCase().includes(q) ?? false) || (a?.nameTw?.toLowerCase().includes(q) ?? false);
         });
       const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
       const matchOutput = selectedOutputs.size === 0 || item.outputs.some(o => selectedOutputs.has(o));
@@ -238,7 +249,7 @@ function App() {
         {(activeTab === 'Apps' || activeTab === 'Models') && (
           <FilterSection
             title={t('Output', language)}
-            options={allOutputs.map(o => ({ value: o.name, label: language === 'cn' && o.nameCn ? o.nameCn : o.name }))}
+            options={allOutputs.map(o => ({ value: o.name, label: outputDisplay(o.name, language) }))}
             selected={selectedOutputs}
             onChange={(val) => toggleFilter(selectedOutputs, val, setSelectedOutputs)}
           />
@@ -247,7 +258,7 @@ function App() {
         {activeTab === 'Apps' && (
           <FilterSection
             title={t('Type', language)}
-            options={allTypes.map(tp => ({ value: tp.name, label: language === 'cn' && tp.nameCn ? tp.nameCn : tp.name }))}
+            options={allTypes.map(tp => ({ value: tp.name, label: typeDisplay(tp.name, language) }))}
             selected={selectedTypes}
             onChange={(val) => toggleFilter(selectedTypes, val, setSelectedTypes)}
           />
@@ -295,7 +306,14 @@ function App() {
                 className={`lang-btn ${language === 'cn' ? 'active' : ''}`}
                 onClick={() => setLanguage('cn')}
               >
-                中文
+                简
+              </button>
+              <button
+                id="lang-tw"
+                className={`lang-btn ${language === 'tw' ? 'active' : ''}`}
+                onClick={() => setLanguage('tw')}
+              >
+                繁
               </button>
             </div>
             {/* Theme Toggle */}
