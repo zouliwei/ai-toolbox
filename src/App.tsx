@@ -19,10 +19,10 @@ type Language = 'en' | 'cn' | 'tw';
 
 // ─── STATIC TRANSLATIONS DICTIONARY ─────────────────────────────────────────
 const TITLES_DICT: Record<string, { cn: string; tw: string }> = {
-  'AI Navigator': { cn: 'AI 目录', tw: 'AI 目錄' },
-  'Type': { cn: '类型', tw: '類型' },
-  'Output': { cn: '输出', tw: '輸出' },
-  'Country': { cn: '国家', tw: '國家' },
+  'AI Toolbox': { cn: 'AI 工具箱', tw: 'AI 工具箱' },
+  'App Type': { cn: '应用类型', tw: '應用類型' },
+  'Output Modality': { cn: '输出模态', tw: '輸出模態' },
+  'Company Domicile': { cn: '公司属地', tw: '公司屬地' },
   'Used by Apps': { cn: '相关应用', tw: '相關應用' },
   'Proprietary MODELS': { cn: '专属模型', tw: '專屬模型' },
   'Apps': { cn: '应用', tw: '應用' },
@@ -94,13 +94,13 @@ function App() {
   const [language, setLanguage] = useState<Language>('en');
   const [viewMode, setViewMode] = useState<ViewMode>(() => {
     try {
-      const stored = localStorage.getItem('ai-nav-view-mode');
+      const stored = localStorage.getItem('ai-toolbox-view-mode');
       return (stored === 'classic' ? 'classic' : 'adventure') as ViewMode;
     } catch { return 'adventure'; }
   });
 
   useEffect(() => {
-    try { localStorage.setItem('ai-nav-view-mode', viewMode); } catch { /* noop */ }
+    try { localStorage.setItem('ai-toolbox-view-mode', viewMode); } catch { /* noop */ }
   }, [viewMode]);
 
   const toggleViewMode = () =>
@@ -232,7 +232,7 @@ function App() {
       {/* SIDEBAR */}
       <aside className={`sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="title-group">
-          <h1>{t('AI Navigator', language)}</h1>
+          <h1>{t('AI Toolbox', language)}</h1>
           <button className="mobile-close-btn" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
@@ -249,7 +249,7 @@ function App() {
 
         {(activeTab === 'Apps' || activeTab === 'Models' || activeTab === 'Companies') && (
           <FilterSection
-            title={t('Country', language)}
+            title={t('Company Domicile', language)}
             options={allCountries.map(c => ({ value: c, label: countryDisplay(c, language) }))}
             selected={selectedCountries}
             onChange={(val) => toggleFilter(selectedCountries, val, setSelectedCountries)}
@@ -258,7 +258,7 @@ function App() {
 
         {(activeTab === 'Apps' || activeTab === 'Models') && (
           <FilterSection
-            title={t('Output', language)}
+            title={t('Output Modality', language)}
             options={allOutputs.map(o => ({ value: o.name, label: outputDisplay(o.name, language) }))}
             selected={selectedOutputs}
             onChange={(val) => toggleFilter(selectedOutputs, val, setSelectedOutputs)}
@@ -267,7 +267,7 @@ function App() {
 
         {activeTab === 'Apps' && (
           <FilterSection
-            title={t('Type', language)}
+            title={t('App Type', language)}
             options={allTypes.map(tp => ({ value: tp.name, label: typeDisplay(tp.name, language) }))}
             selected={selectedTypes}
             onChange={(val) => toggleFilter(selectedTypes, val, setSelectedTypes)}
@@ -287,7 +287,7 @@ function App() {
       {/* MAIN CONTENT */}
       <main className="main-content">
         <div className="mobile-header">
-          <h1>{t('AI Navigator', language)}</h1>
+          <h1>{t('AI Toolbox', language)}</h1>
           <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
@@ -462,11 +462,11 @@ function AppCard({ app, language }: { app: AIApp; language: Language }) {
       </div>
       <div className="card-body">
         <div className="data-row">
-          <span className="data-label">{t('Type', language)}</span>
+          <span className="data-label">{t('App Type', language)}</span>
           <PillList items={app.type ? [app.type] : []} translate={s => typeDisplay(s, language)} />
         </div>
         <div className="data-row">
-          <span className="data-label">{t('Output', language)}</span>
+          <span className="data-label">{t('Output Modality', language)}</span>
           <PillList items={app.outputs} translate={s => outputDisplay(s, language)} />
         </div>
         <div className="data-row">
@@ -496,7 +496,7 @@ function ModelCard({ model, language }: { model: AIModel; language: Language }) 
       </div>
       <div className="card-body">
         <div className="data-row">
-          <span className="data-label">{t('Output', language)}</span>
+          <span className="data-label">{t('Output Modality', language)}</span>
           <PillList items={model.outputs} translate={s => outputDisplay(s, language)} />
         </div>
         <div className="data-row">

@@ -13,16 +13,16 @@
       "nameTw": "創作平台"
     },
     {
-      "name": "Local Workspace",
-      "nameCn": "本地工作台",
+      "name": "Knowledge Base",
+      "nameCn": "云端知识库",
       "sorting": 3,
-      "nameTw": "本機工作區"
+      "nameTw": "雲端知識庫"
     },
     {
-      "name": "Knowledge Base",
-      "nameCn": "知识库",
+      "name": "Local Workspace",
+      "nameCn": "本地工作台",
       "sorting": 4,
-      "nameTw": "知識庫"
+      "nameTw": "本機工作區"
     }
   ],
   "outputs": [

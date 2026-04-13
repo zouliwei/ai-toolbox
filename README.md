@@ -1,4 +1,4 @@
-# AI Navigator Directory
+# AI Toolbox Directory
 
 A purely static web directory built with Vite, React, and TypeScript. This repository showcases various AI Apps, Companies, and Models linked to a specific design system (Editorial Brutalism).
 
