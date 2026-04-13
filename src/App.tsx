@@ -22,7 +22,7 @@ const TITLES_DICT: Record<string, { cn: string; tw: string }> = {
   'AI Toolbox': { cn: 'AI 工具箱', tw: 'AI 工具箱' },
   'App Type': { cn: '应用类型', tw: '應用類型' },
   'Output Modality': { cn: '输出模态', tw: '輸出模態' },
-  'Company Domicile': { cn: '公司属地', tw: '公司屬地' },
+  'Company Location': { cn: '公司属地', tw: '公司屬地' },
   'Used by Apps': { cn: '相关应用', tw: '相關應用' },
   'Proprietary MODELS': { cn: '专属模型', tw: '專屬模型' },
   'Apps': { cn: '应用', tw: '應用' },
@@ -249,7 +249,7 @@ function App() {
 
         {(activeTab === 'Apps' || activeTab === 'Models' || activeTab === 'Companies') && (
           <FilterSection
-            title={t('Company Domicile', language)}
+            title={t('Company Location', language)}
             options={allCountries.map(c => ({ value: c, label: countryDisplay(c, language) }))}
             selected={selectedCountries}
             onChange={(val) => toggleFilter(selectedCountries, val, setSelectedCountries)}
