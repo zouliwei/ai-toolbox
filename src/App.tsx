@@ -90,6 +90,7 @@ function outputDisplay(outputName: string, language: Language): string {
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('Apps');
   const [search, setSearch] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState<Language>('en');
   const [viewMode, setViewMode] = useState<ViewMode>(() => {
     try {
@@ -222,10 +223,19 @@ function App() {
 
   return (
     <div className="app-container" data-theme={viewMode === 'adventure' ? 'adventure' : undefined}>
+      {/* MOBILE OVERLAY */}
+      <div 
+        className={`sidebar-overlay ${isMobileMenuOpen ? 'open' : ''}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
       {/* SIDEBAR */}
-      <aside className="sidebar">
+      <aside className={`sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="title-group">
           <h1>{t('AI Navigator', language)}</h1>
+          <button className="mobile-close-btn" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
         </div>
 
         <input
@@ -263,10 +273,25 @@ function App() {
             onChange={(val) => toggleFilter(selectedTypes, val, setSelectedTypes)}
           />
         )}
+
+        <div className="sidebar-footer mobile-only">
+          <GlobalControls 
+            language={language} 
+            setLanguage={setLanguage} 
+            viewMode={viewMode} 
+            toggleViewMode={toggleViewMode} 
+          />
+        </div>
       </aside>
 
       {/* MAIN CONTENT */}
       <main className="main-content">
+        <div className="mobile-header">
+          <h1>{t('AI Navigator', language)}</h1>
+          <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+        </div>
         <header className="header">
           <div className="tab-group">
             <button
@@ -291,33 +316,13 @@ function App() {
               {t('COMPANIES', language)} ({filteredCompanies.length})
             </button>
           </div>
-          <div className="header-controls">
-            {/* Language Toggle */}
-            <div className="lang-toggle" role="group" aria-label="Language toggle">
-              <button
-                id="lang-en"
-                className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-                onClick={() => setLanguage('en')}
-              >
-                EN
-              </button>
-              <button
-                id="lang-cn"
-                className={`lang-btn ${language === 'cn' ? 'active' : ''}`}
-                onClick={() => setLanguage('cn')}
-              >
-                简
-              </button>
-              <button
-                id="lang-tw"
-                className={`lang-btn ${language === 'tw' ? 'active' : ''}`}
-                onClick={() => setLanguage('tw')}
-              >
-                繁
-              </button>
-            </div>
-            {/* Theme Toggle */}
-            <ThemeToggle mode={viewMode} onToggle={toggleViewMode} />
+          <div className="desktop-only">
+            <GlobalControls 
+              language={language} 
+              setLanguage={setLanguage} 
+              viewMode={viewMode} 
+              toggleViewMode={toggleViewMode} 
+            />
           </div>
         </header>
 
@@ -338,6 +343,36 @@ function App() {
 }
 
 // ─── SUB-COMPONENTS ───────────────────────────────────────────────────────────
+
+function GlobalControls({ language, setLanguage, viewMode, toggleViewMode }: any) {
+  return (
+    <div className="header-controls">
+      {/* Language Toggle */}
+      <div className="lang-toggle" role="group" aria-label="Language toggle">
+        <button
+          className={`lang-btn ${language === 'en' ? 'active' : ''}`}
+          onClick={() => setLanguage('en')}
+        >
+          EN
+        </button>
+        <button
+          className={`lang-btn ${language === 'cn' ? 'active' : ''}`}
+          onClick={() => setLanguage('cn')}
+        >
+          简
+        </button>
+        <button
+          className={`lang-btn ${language === 'tw' ? 'active' : ''}`}
+          onClick={() => setLanguage('tw')}
+        >
+          繁
+        </button>
+      </div>
+      {/* Theme Toggle */}
+      <ThemeToggle mode={viewMode} onToggle={toggleViewMode} />
+    </div>
+  );
+}
 
 // SVG Icons — illustrative, colorful style
 function CompassIcon() {

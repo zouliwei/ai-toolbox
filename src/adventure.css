@@ -558,3 +558,31 @@
 [data-theme="adventure"] .sidebar::-webkit-scrollbar-thumb:hover {
   background: rgba(59,165,93,0.35);
 }
+
+/* ─── 19. RESPONSIVE ADVENTURE MODE (MOBILE) ─── */
+@media (max-width: 768px) {
+  [data-theme="adventure"] .mobile-header {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(45, 52, 54, 0.08);
+  }
+  
+  [data-theme="adventure"] .mobile-header h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+  }
+  
+  [data-theme="adventure"] .sidebar {
+    border-radius: 24px 0 0 24px;
+    position: fixed;
+    z-index: 100;
+  }
+  
+  [data-theme="adventure"] .header {
+    background: transparent;
+    border-bottom: none;
+    padding-top: var(--space-xs);
+  }
+}
+
