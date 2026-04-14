@@ -276,7 +276,7 @@ function App() {
           />
         )}
 
-        <div className="sidebar-footer mobile-only">
+        <div className="sidebar-mobile-controls mobile-only">
           <GlobalControls 
             language={language} 
             setLanguage={setLanguage} 

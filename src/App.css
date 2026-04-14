@@ -324,13 +324,13 @@
     display: block !important;
   }
   
-  .sidebar-footer {
+  .sidebar-mobile-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
     padding-top: var(--space-md);
-    border-top: var(--border-thin);
+    border-top: var(--border-thick);
+    margin-top: var(--space-xs);
   }
   
   .mobile-header h1 {
