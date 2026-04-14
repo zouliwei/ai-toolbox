@@ -296,6 +296,7 @@ function App() {
         </div>
         <header className="header">
           <div className="tab-group">
+          <div className="view-toggle">
             <button
               id="tab-apps"
               className={`tab-btn ${activeTab === 'Apps' ? 'active' : ''}`}
@@ -317,6 +318,7 @@ function App() {
             >
               {t('COMPANY', language)} ({filteredCompanies.length})
             </button>
+          </div>
           </div>
           <div className="desktop-only">
             <GlobalControls 
