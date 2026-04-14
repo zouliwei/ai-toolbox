@@ -171,9 +171,9 @@ function App() {
           const m = db.models.find(model => model.name === mName);
           return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false) || (m?.nameTw?.toLowerCase().includes(q) ?? false);
         });
-      const matchType = selectedTypes.size === 0 || selectedTypes.has(item.type);
-      const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
-      const matchOutput = selectedOutputs.size === 0 || item.outputs.some(o => selectedOutputs.has(o));
+      const matchType = selectedTypes.size === 0 || Array.from(selectedTypes).every(t => item.type === t);
+      const matchCountry = selectedCountries.size === 0 || Array.from(selectedCountries).every(c => item.country === c);
+      const matchOutput = selectedOutputs.size === 0 || Array.from(selectedOutputs).every(o => item.outputs.includes(o));
       return matchSearch && matchType && matchCountry && matchOutput;
     });
   }, [search, selectedTypes, selectedCountries, selectedOutputs]);
@@ -193,7 +193,7 @@ function App() {
           const m = db.models.find(model => model.name === mName);
           return mName.toLowerCase().includes(q) || (m?.nameCn?.toLowerCase().includes(q) ?? false) || (m?.nameTw?.toLowerCase().includes(q) ?? false);
         });
-      const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
+      const matchCountry = selectedCountries.size === 0 || Array.from(selectedCountries).every(c => item.country === c);
       return matchSearch && matchCountry;
     });
   }, [search, selectedCountries]);
@@ -213,8 +213,8 @@ function App() {
           const a = db.apps.find(app => app.name === aName);
           return aName.toLowerCase().includes(q) || (a?.nameCn?.toLowerCase().includes(q) ?? false) || (a?.nameTw?.toLowerCase().includes(q) ?? false);
         });
-      const matchCountry = selectedCountries.size === 0 || selectedCountries.has(item.country);
-      const matchOutput = selectedOutputs.size === 0 || item.outputs.some(o => selectedOutputs.has(o));
+      const matchCountry = selectedCountries.size === 0 || Array.from(selectedCountries).every(c => item.country === c);
+      const matchOutput = selectedOutputs.size === 0 || Array.from(selectedOutputs).every(o => item.outputs.includes(o));
       return matchSearch && matchCountry && matchOutput;
     });
   }, [search, selectedCountries, selectedOutputs]);
