@@ -231,21 +231,23 @@ function App() {
 
       {/* SIDEBAR */}
       <aside className={`sidebar ${isMobileMenuOpen ? 'open' : ''}`}>
-        <div className="title-group">
+        <div className="sidebar-header-desktop">
           <h1>{t('AI Toolbox', language)}</h1>
+        </div>
+
+        <div className="search-group">
+          <input
+            id="search-input"
+            type="text"
+            className="search-box brutal-shadow"
+            placeholder={t('SEARCH...', language)}
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
           <button className="mobile-close-btn" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
         </div>
-
-        <input
-          id="search-input"
-          type="text"
-          className="search-box brutal-shadow"
-          placeholder={t('SEARCH...', language)}
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
 
         {(activeTab === 'Apps' || activeTab === 'Models' || activeTab === 'Companies') && (
           <FilterSection
