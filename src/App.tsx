@@ -27,9 +27,9 @@ const TITLES_DICT: Record<string, { cn: string; tw: string }> = {
   'Proprietary MODELS': { cn: '专属模型', tw: '專屬模型' },
   'Apps': { cn: '应用', tw: '應用' },
   'Models': { cn: '模型', tw: '模型' },
-  'APPS': { cn: '应用', tw: '應用' },
-  'MODELS': { cn: '模型', tw: '模型' },
-  'COMPANIES': { cn: '公司', tw: '公司' },
+  'APP': { cn: '应用', tw: '應用' },
+  'MODEL': { cn: '模型', tw: '模型' },
+  'COMPANY': { cn: '公司', tw: '公司' },
   'SEARCH...': { cn: '搜索...', tw: '搜尋...' },
   'Intl Site →': { cn: '国际链接 →', tw: '國際連結 →' },
   'CN Site →': { cn: '国内链接 →', tw: '國內連結 →' },
@@ -301,21 +301,21 @@ function App() {
               className={`tab-btn ${activeTab === 'Apps' ? 'active' : ''}`}
               onClick={() => handleTabSwitch('Apps')}
             >
-              {t('APPS', language)} ({filteredApps.length})
+              {t('APP', language)} ({filteredApps.length})
             </button>
             <button
               id="tab-models"
               className={`tab-btn ${activeTab === 'Models' ? 'active' : ''}`}
               onClick={() => handleTabSwitch('Models')}
             >
-              {t('MODELS', language)} ({filteredModels.length})
+              {t('MODEL', language)} ({filteredModels.length})
             </button>
             <button
               id="tab-companies"
               className={`tab-btn ${activeTab === 'Companies' ? 'active' : ''}`}
               onClick={() => handleTabSwitch('Companies')}
             >
-              {t('COMPANIES', language)} ({filteredCompanies.length})
+              {t('COMPANY', language)} ({filteredCompanies.length})
             </button>
           </div>
           <div className="desktop-only">
